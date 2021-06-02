@@ -12,7 +12,6 @@
 
 import re
 
-
 def main():
 
     while True:
@@ -20,24 +19,10 @@ def main():
         x = userPrompt()
         if x == -1:
             break
+        print("------------------------------------------------------------")
+        print(str(fibbonachi(x)))
+        print("------------------------------------------------------------\n") 
 
-        if x is not None:
-            first = 0
-            second = 1
-            print("------------------------------------------------------------")
-            for i in range(0,x):
-                if i==0:
-                    current_sum = 0
-                elif i==1:
-                    current_sum = 1
-                else:
-                    current_sum = first + second
-
-                print(f"{current_sum} ",end='')
-
-                first = second
-                second = current_sum
-            print("\n------------------------------------------------------------\n")
 
 def userPrompt():
     # Prompt user for nth number to print up to
@@ -48,7 +33,27 @@ def userPrompt():
         temp_nth = input("How many digits of the Fibonacci Sequence would you like (-1 to quit): ")
         regex_passed = re.search("^(([0-9]*)|(-1))$", temp_nth)
         if not regex_passed:
-            print("Invalid integer. Please try again entering a positive integer or -1 to quit.\n")
+            print("Invalid integer. Please try again entering a positive integer (or -1 to quit).\n")
     return int(temp_nth)
+
+def fibbonachi(x):
+    # fibonacci(x) == fibonacci(x-1) + fibonacci(x-2)
+    # ...
+    # fibonacci(4) = fibonacci(3) + fibonacci(2)
+    # fibonacci(3) = fibonacci(2) + fibonacci(1)
+    # fibonacci(2) = 1
+    # fibonacci(1) = 0
+    if x is not None:
+        if x==0:
+            # If you request none, you get none!
+            return None
+        elif x==1:
+            return 0
+        elif x==2:
+            return 1
+        else:
+            # print(f"{x-1} {x-2}")
+            return(fibbonachi(x-1) + fibbonachi(x-2))
+
 
 main()
