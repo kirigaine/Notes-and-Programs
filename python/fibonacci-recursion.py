@@ -20,7 +20,7 @@ def main():
         if x == -1:
             break
         print("------------------------------------------------------------")
-        print(str(fibbonachi(x)))
+        print(str(fibonacci(x)))
         print("------------------------------------------------------------\n") 
 
 
@@ -36,7 +36,7 @@ def userPrompt():
             print("Invalid integer. Please try again entering a positive integer (or -1 to quit).\n")
     return int(temp_nth)
 
-def fibbonachi(x):
+def fibonacci(x):
     # fibonacci(x) == fibonacci(x-1) + fibonacci(x-2)
     # ...
     # fibonacci(4) = fibonacci(3) + fibonacci(2)
@@ -53,7 +53,7 @@ def fibbonachi(x):
             return 1
         else:
             # print(f"{x-1} {x-2}")
-            return(fibbonachi(x-1) + fibbonachi(x-2))
+            return(fibonacci(x-1) + fibonacci(x-2))
 
 
 main()
